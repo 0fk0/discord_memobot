@@ -3,7 +3,6 @@ package fk.memobot;
 import javax.security.auth.login.LoginException;
 
 import fk.memobot.commands.CommandManager;
-import fk.memobot.listeners.EventListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -31,7 +30,7 @@ public class App extends ListenerAdapter
     	builder.setActivity(Activity.playing("メモ機能"));
     	builder.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.MESSAGE_CONTENT);
     	shardManager = builder.build();
-    	shardManager.addEventListener(new EventListener(), new CommandManager());
+    	shardManager.addEventListener(new CommandManager());
 	}
 	
 	public ShardManager getShardManager() {
